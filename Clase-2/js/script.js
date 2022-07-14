@@ -11,7 +11,22 @@ let nombre = prompt("Ingrese su nombre:")
 
 alert("Bienvenido " + nombre)
 
-let edad = parseInt(prompt("Ingrese su edad"))
+let edad = parseInt(prompt("Ingrese su edad"));
+
+function calculo(cantidad,precio,stock) {
+    while(cantidad>stock){
+                
+        alert('Lo sentimos no tenemos stock'); 
+
+        cantidad = parseInt(prompt('Cuantas quiere llevar?'))
+    };
+    if (cantidad<=stock){
+
+        precioTotal+=cantidad*precio
+
+        alert('Esta llevando $'+(cantidad*precio))
+    } 
+}
 
 if (edad>=18){
 
@@ -23,69 +38,27 @@ if (edad>=18){
             
             let cantidadA = parseInt(prompt('Cuantas botellas quiere llevar?'));
 
-            while(cantidadA>stockA){
-                
-                alert('Lo sentimos no tenemos stock'); 
+            calculo(cantidadA,precioA,stockA)
 
-                cantidadA = parseInt(prompt('Cuantas botellas quiere llevar?'))
-            };
-            if (cantidadA<=stockA){
-
-                precioTotal+=cantidadA*precioA
-
-                alert('Esta llevando $'+(cantidadA*precioA)+ ' en vino')
-            }
             break;
 
         case '2':
         
             let cantidadB = parseInt(prompt('Cuantas botellas quiere llevar?'));
 
-            while(cantidadB>stockB){
-                
-                alert('Lo sentimos no tenemos stock'); 
+            calculo(cantidadB,precioB,stockB)    
 
-                cantidadB = parseInt(prompt('Cuantas latas quiere llevar?'))
-            };
-            if (cantidadB<=stockB){
-
-                precioTotal+=cantidadB*precioB
-
-                alert('Esta llevando $'+(cantidadB*precioB)+ ' en cerveza')
-            }    
             break;
         
         case '3':
     
-            cantidadAA = parseInt(prompt('Cuantas botellas de vino quiere llevar?'));
+            let cantidadAA = parseInt(prompt('Cuantas botellas de vino quiere llevar?'));
 
-            while(cantidadAA>stockA){
-                
-                alert('Lo sentimos no tenemos stock'); 
-
-                cantidadAA = parseInt(prompt('Cuantas botellas quiere llevar?'))
-            };
-            if (cantidadAA<=stockA){
-
-                precioTotal+=cantidadAA*precioA
-
-                alert('Esta llevando $'+(cantidadAA*precioA)+ ' en vino')
-            }
+            calculo(cantidadAA,precioA,stockA)
 
             let cantidadBB = parseInt(prompt('Cuantas latas de cerveza quiere llevar?'));
 
-            while(cantidadBB>stockB){
-                
-                alert('Lo sentimos no tenemos stock'); 
-
-                cantidadBB = parseInt(prompt('Cuantas latas quiere llevar?'))
-            };
-            if (cantidadBB<=stockB){
-
-                precioTotal+=cantidadBB*precioB
-
-                alert('Esta llevando $'+(cantidadBB*precioB)+ ' en cerveza')
-            }
+            calculo(cantidadBB,precioB,stockB)
 
             alert('El precio total de la compra es: $'+precioTotal);
 
