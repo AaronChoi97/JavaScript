@@ -1,17 +1,36 @@
-let productoA = 'Vino'  
-let productoB = 'Cerveza'
-let precioA = 250
-let precioB = 180 
-let stockA = 15
-let stockB = 35
 
 let precioTotal = 0
 
-let nombre = prompt("Ingrese su nombre:")
+function Producto(nombre, precio, stock) {
+    this.nombre=nombre
+    this.precio=precio
+    this.stock=stock
 
-alert("Bienvenido " + nombre)
+}
+
+const productoA= new Producto ('Vino', 250, 15)
+const productoB = new Producto ('Cerveza', 180, 35)
+
+let listaProductos = [productoA, productoB]
+
+
+let nombre1 = prompt("Ingrese su nombre:")
+
+alert("Bienvenido " + nombre1)
 
 let edad = parseInt(prompt("Ingrese su edad"));
+
+
+let nombreProductos= []
+
+function listarProdcutos() {
+    for(const producto of listaProductos){
+        nombreProductos.push(producto.nombre)
+    }
+    
+}
+
+listarProdcutos()
 
 function calculo(cantidad,precio,stock) {
     while(cantidad>stock){
@@ -30,35 +49,35 @@ function calculo(cantidad,precio,stock) {
 
 if (edad>=18){
 
-    let carrito = prompt ('Que producto quiere comprar? \nElija la opcion numerica: \n1- Vino\n2- Cerveza\n3-Ambos')
+    let carrito = prompt ('Que producto quiere comprar? \n' + nombreProductos.join('\n')+ '\nAmbos').toLocaleLowerCase() 
 
     switch (carrito){
 
-        case '1':
+        case 'vino':
             
             let cantidadA = parseInt(prompt('Cuantas botellas quiere llevar?'));
 
-            calculo(cantidadA,precioA,stockA)
+            calculo(cantidadA,productoA.precio,productoA.stock)
 
             break;
 
-        case '2':
+        case 'cerveza':
         
             let cantidadB = parseInt(prompt('Cuantas botellas quiere llevar?'));
 
-            calculo(cantidadB,precioB,stockB)    
+            calculo(cantidadB,productoB.precio,productoB.stock)    
 
             break;
         
-        case '3':
+        case 'ambos':
     
             let cantidadAA = parseInt(prompt('Cuantas botellas de vino quiere llevar?'));
 
-            calculo(cantidadAA,precioA,stockA)
+            calculo(cantidadAA,productoA.precio,productoA.stock)
 
             let cantidadBB = parseInt(prompt('Cuantas latas de cerveza quiere llevar?'));
 
-            calculo(cantidadBB,precioB,stockB)
+            calculo(cantidadBB,productoB.precio,productoB.stock)
 
             alert('El precio total de la compra es: $'+precioTotal);
 
