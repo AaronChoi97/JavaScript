@@ -21,16 +21,16 @@ alert("Bienvenido " + nombre1)
 let edad = parseInt(prompt("Ingrese su edad"));
 
 
-let nombreProductos= []
+let nombreProductos= listaProductos.map ((producto) => producto.nombre)
 
-function listarProdcutos() {
+/*function listarProdcutos() {
     for(const producto of listaProductos){
         nombreProductos.push(producto.nombre)
     }
     
 }
 
-listarProdcutos()
+listarProdcutos()*/
 
 function calculo(cantidad,precio,stock) {
     while(cantidad>stock){
@@ -83,6 +83,7 @@ if (edad>=18){
 
             break;   
     }
+
 
     alert('Gracias por su compra')
 }
