@@ -90,3 +90,22 @@ if (edad>=18){
 else{
     alert('No puede realizar la compra por ser menor de edad')
 }
+
+
+for(const producto of listaProductos){
+
+    if(producto.stock){
+    
+        let cuenta = document.createElement('p')
+
+        let divProducto = document.getElementById ('productos')
+
+        cuenta.innerHTML= `<h3>${producto.nombre}</h3>
+                            <p>$ ${producto.precio}</p>
+                            <p>Unidades restantes: ${producto.stock}</p>`
+
+        divProducto.appendChild(cuenta)
+
+    }
+
+}
